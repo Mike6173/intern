@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Lookup</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="property_lookup.js" defer></script>
+</head>
+<body id="property-lookup-page">
+    <nav>
+        <div class="nav-container">
+            <img src="upgrade.png" alt="Upgrade Logo" class="nav-logo">
+            <div class="nav-links">
+                <a href="index.html"></a>
+            </div>
+        </div>
+    </nav>
+    <div class="property-lookup-container">
+        <div class="property-details"></div>
+        <div class="sidebar">
+            <label>
+                <input type="checkbox" id="filter-active-checkbox">
+                Show Active Properties  
+            </label>
+            <input type="text" id="search-bar" class="input-field" placeholder="Search by address">
+            <div id="property-list" class="property-list"></div>
+        </div>
+        <div id="add-property-icon" class="add-property-icon">➕</div>
+    </div>
+    <!-- Modal for adding property -->
+    <div id="property-modal" class="popup">
+        <span class="close">&times;</span>
+        <form id="property-form">
+            <div>
+                <label for="property-address">Enter Address:</label>
+                <input type="text" id="property-address" name="address" required>
+            </div>
+            <div>
+                <label for="property-name">Enter Property Name:</label>
+                <input type="text" id="property-name" name="name" required>
+            </div>
+            <button type="submit">Done</button>
+            <button type="button" id="cancel-popup">Cancel</button>
+        </form>
+    </div>
+    <!-- Modal for editing property -->
+    <div id="edit-property-modal" class="popup">
+        <span class="close-edit">&times;</span>
+        <form id="edit-property-form">
+            <div>
+                <label for="edit-property-address">Edit Address:</label>
+                <input type="text" id="edit-property-address" name="edit-address" required>
+            </div>
+            <div>
+                <label for="edit-property-name">Edit Property Name:</label>
+                <input type="text" id="edit-property-name" name="edit-name" required>
+            </div>
+            <button type="submit">Save</button>
+            <button type="button" id="cancel-edit-popup">Cancel</button>
+        </form>
+    </div>
+</body>
+</html>

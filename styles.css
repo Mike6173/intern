@@ -1,0 +1,892 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    align-items: flex-start; /* Align items to the top */
+    height: 100vh;
+}
+
+nav {
+    width: 100%;
+    background-color: #003366;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    height: 50px;
+    margin-left: 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+}
+
+h1 {
+    margin-top: 100px;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    max-width: 2200px;
+    flex: 1;
+}
+
+.property-lookup-container {
+    margin-top: 80px;
+    display: flex;
+    width: 100%;
+    max-width: 2200px;
+    flex: 1;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-left: 1px solid #ccc;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    position: fixed;
+    top: 80px;
+    right: 0;
+}
+
+/* Hide the scrollbar but still allow scrolling */
+::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.sidebar, .property-details {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.sidebar input[type="text"], .sidebar input[type="number"], .sidebar .btn {
+    font-size: 0.9em;
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    width: calc(100% - 30px); /* Adjust width for proper spacing */
+}
+
+.property-details {
+    flex: 1;
+    padding: 20px;
+    margin-right: 300px;
+    overflow-y: auto;
+    height: calc(100vh - 80px);
+}
+
+.property-list-container {
+    display: flex;
+}
+
+.property-list {
+    width: 100%;
+    border-right: 1px solid #003366;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.property-item {
+    background-color: #003366;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+}
+
+.property-item span {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.property-item .buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.edit-btn, .delete-btn {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    width: 100px;
+}
+
+.btn {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 10px 20px;
+    padding: 5px;
+    font-size: 12px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.image-upload {
+    display: none;
+}
+
+.image-thumbnail {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 5000px;
+    gap: 20px;
+}
+
+#container {
+    position: relative; /* Changed from fixed to relative */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the left */
+    width: 100%;
+    height: auto; /* Changed to auto */
+    max-width: 1270px;
+    margin: 0 auto;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+#building-wrapper {
+    position: relative;
+    display: inline-block;
+    max-height: 198vh;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#building {
+    max-width: 100%;
+    max-height: auto;
+    max-height: 98vh; /* Increase the height */
+    width: auto;
+    height: auto;
+    display: block;
+    margin-bottom: 100px;
+}
+
+#polygon-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+#image-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#uploaded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.green-tool {
+    position: absolute;
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    cursor: grab;
+    z-index: 20;
+}
+
+.resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.resize-handle.top-left {
+    top: -5px;
+    left: -5px;
+    cursor: nwse-resize;
+}
+
+.resize-handle.top-right {
+    top: -5px;
+    right: -5px;
+    cursor: nesw-resize;
+}
+
+.resize-handle.bottom-left {
+    bottom: -5px;
+    left: -5px;
+    cursor: nesw-resize;
+}
+
+.resize-handle.bottom-right {
+    bottom: -5px;
+    right: -5px;
+    cursor: nwse-resize;
+}
+
+.info-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 250px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+#output, #polygon-coverage {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+#upload-image {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: #003366;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .4);
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    transition: .5s;
+    margin: 10px 0;
+}
+
+.rotate-handle {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: grab;
+}
+
+.trash-can, .add-drop, .save-icon, .pdf-icon, .upload-icon {
+    position: fixed;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #02356d;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.trash-can {
+    right: 9px;
+}
+
+.add-drop {
+    right: 65px; /* Adjust to position the plus button next to the trash can */
+}
+
+.pdf-icon {
+    right: 121px; /* Adjust to position the PDF button next to the plus button */
+    background-color: #02356d; /* Ensuring the background color is preserved */
+    background-image: url('pdfpng.png'); /* Adding the image */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px 30px;
+}
+
+.save-icon {
+    right: 177px; /* Adjust to position the save button next to the PDF button */
+}
+
+.upload-icon {
+    right: 233px; /* Adjust to position the upload button next to the save button */
+}
+
+.draggable .tool-date {
+    display: block;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hidden-handles .resize-handle,
+.hidden-handles .rotate-handle {
+    display: none;
+}
+
+#completion-input {
+    border: 2px solid #02356d;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 200;
+}
+
+.green-tool .tool-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.green-tool .tool-date,
+.green-tool .percent-text {
+    color: black;
+    font-weight: 700;
+    display: inline-block;
+    margin: 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.property-list-container {
+    display: flex;
+}
+
+.property-list {
+    width: 220px;
+    border-right: 1px solid #003366;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.property-item {
+    background-color: #003366;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+}
+
+.property-item:hover {
+    background-color: #0056b3;
+}
+
+.property-dashboard {
+    flex: 1;
+    padding: 20px;
+}
+
+.property-details {
+    flex: 1;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.property-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Use fixed layout for fixed column widths */
+    font-size: 13px; /* Adjust the text size here */
+}
+
+.property-table th, .property-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.property-table th {
+    background-color: #003366;
+    color: #ffffff;
+    font-size: 14px; /* Adjust the text size here */
+}
+
+.property-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.property-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.property-table tbody tr:last-of-type {
+    border-bottom: 2px solid #003366;
+}
+
+.property-table td:first-child, .property-table th:first-child {
+    width: 55%;
+    text-align: left;
+}
+
+.property-table td:nth-child(3), .property-table th:nth-child(3),
+.property-table td:nth-child(4), .property-table th:nth-child(4) {
+    width: 6%;
+}
+
+.property-table td:nth-child(5), .property-table th:nth-child(5) {
+    width: 6%;
+}
+
+.property-table td:nth-child(2), .property-table th:nth-child(2),
+.property-table td:nth-child(6), .property-table th:nth-child(6),
+.property-table td:nth-child(7), .property-table th:nth-child(7) {
+    width: 5%;
+}
+
+.add-row-btn, .edit-btn, .delete-btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+}
+
+.add-row-btn:hover, .edit-btn:hover, .delete-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Help Page Styles */
+.container {
+    margin-top: 80px;
+    padding: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2, .contact-info h3 {
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.contact-info a {
+    color: #003366;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-info img {
+    display: block;
+    margin-top: 20px;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    animation: animatetop 0.4s;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 10px;
+}
+
+form input {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    border: 2px solid #888;
+    padding: 20px;
+    z-index: 1000;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.popup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.popup input[type="number"], .popup input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popup button {
+    display: block;
+    width: 100px;
+    padding: 8px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 4px;
+    background-color: #003366;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.popup button:hover {
+    background-color: #0056b3;
+}
+
+/* Updated Property Lookup Page Buttons */
+#add-property-button, .edit-btn {
+    display: inline-block;
+    width: 200px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+#add-property-button:hover, .edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+}
+
+.popup div {
+    margin-bottom: 15px;
+}
+
+.popup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.popup input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.popup button:hover {
+    background-color: #0056b3;
+}
+
+.popup #cancel-popup {
+    background-color: #ccc;
+    margin-left: 10px;
+}
+
+.popup #cancel-popup:hover {
+    background-color: #999;
+}
+
+#add-row-button, #edit-property-button, #delete-property-button {
+    display: inline-block;
+    width: 115px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-weight: 900px;
+}
+
+#add-row-button:hover, #edit-property-button:hover, #delete-property-button:hover {
+    background-color: #0056b3;
+}
+
+.plain-btn {
+    all: unset;
+    cursor: pointer;
+}
+
+/* Add the following CSS for the right sidebar */
+.right-sidebar {
+    width: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-left: 1px solid #ccc;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    position: fixed;
+    top: 80px;
+    right: 0;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin: 0 300px;
+    box-sizing: border-box;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.styled-table th {
+    background-color: #003366;
+    color: #ffffff;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #003366;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Highlighted row style */
+.highlight {
+    background-color: #b3ffcc !important;
+}
+
+.input-field {
+    width: calc(100% - 30px);
+    box-sizing: border-box;
+    padding: 5px;
+    margin-top: 5px;
+}
+.add-property-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 4px;
+    width: 50px;
+    height: 50px;
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 25px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-property-icon:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Measurement Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="index.js" defer></script>
+
+    
+</head>
+<body id="main-page">
+    <nav>
+        <div class="nav-container">
+            <img src="upgrade.png" alt="Upgrade Logo" class="nav-logo">
+            <div class="nav-links">
+                <a href="property_lookup.html">Property Lookup</a>
+                <a href="#" id="toggle-menus-button">Toggle Menu</a>
+            </div>
+        </div>
+    </nav>
+    <div class="dashboard-container">
+        <button id="save-session-button" class="hidden">Save Session</button>
+        <button id="save-pdf-button" class="hidden">Save as PDF</button>
+        <input type="file" id="upload-image" accept="image/*" style="display: none;">
+        
+        <div class="right-sidebar" id="right-sidebar">
+            <div class="input-container-inline">
+                <label for="session-id-input">Session ID#</label>
+                <input type="text" id="session-id-input" class="input-field" placeholder="Enter ID">
+                <button id="resume-session-button" class="Sesssave"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="input-container">
+                <label for="total-drops">Total Drop#</label>
+                <input type="number" id="total-drops" class="input-field" placeholder="0">
+                <span class="arrow"></span>
+            </div><br>
+            <hr><br>
+            <p id="completion">Completion: 0%</p>
+            <br><hr>
+            <table id="right-table" class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Drop #</th>
+                        <th>Date</th>
+                        <th>% Done</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated dynamically by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        <div class="main-content">
+            <h1></h1>
+            <h2 id="building-name-display"></h2>
+            <div id="container">
+                <div id="building-wrapper">
+                    <img id="building" src="" alt="Building" style="display: none;">
+                </div>
+                <canvas id="polygon-canvas"></canvas>
+                <div id="tool" class="draggable">
+                    <div class="tool-content"></div>
+                </div>
+            </div>
+        </div>
+        <div id="upload-icon" class="upload-icon">📤</div>
+        <div id="save-icon" class="save-icon">💾</div>
+        <div id="pdf-icon" class="pdf-icon"></div>
+        <div id="add-drop-button" class="add-drop">➕</div>
+        <div id="trash-can" class="trash-can">🗑️</div>
+    </div>
+</body>
+</html>
